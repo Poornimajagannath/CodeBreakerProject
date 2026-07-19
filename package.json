@@ -1,25 +1,22 @@
 {
-  "name": "code-breaker-project",
+  "name": "mira-skincare-expert",
   "version": "1.0.0",
-  "description": "Code Breaker Project",
+  "description": "Mira — a calm skincare expert agent for routines, ingredients, and concerns",
   "private": true,
   "scripts": {
     "start": "browser-sync start --server ./src --files ./src",
     "test": "mocha -t 20000 test/*.spec.js",
-    "test-watch": "npm test -- --bail --watch",
-    "deploy:github-pages": "git subtree push --prefix src origin gh-pages"
+    "test-watch": "npm test -- --bail --watch"
   },
-  "author": "Eric J Fisher <eric@codeschool.com>",
+  "author": "Poornima Jagannath",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.14.0",
-    "chai": "^3.5.0",
-    "javascript-sandbox": "git+https://github.com/codeschool/javascript-sandbox.git",
-    "jsdom": "^9.4.1",
-    "mocha": "^3.0.1",
-    "sinon": "^1.17.5"
+    "browser-sync": "^2.29.3",
+    "chai": "^4.3.10",
+    "jsdom": "^22.1.0",
+    "mocha": "^10.2.0"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=18"
   }
 }
