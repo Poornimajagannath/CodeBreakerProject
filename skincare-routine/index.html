@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personalized Skincare Routine — Live Tinted + Tretinoin + Ranavat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1c1814;
+      --muted: #5c534a;
+      --line: #d9cfc3;
+      --paper: #f7f1e8;
+      --panel: #fffaf4;
+      --accent: #8a4b2f;
+      --accent-soft: #e8d2c4;
+      --ok: #2f5d3a;
+      --warn: #8a5a16;
+      --danger: #7a2e2e;
+      --shadow: 0 18px 40px rgba(28, 24, 20, 0.08);
+      --radius: 18px;
+      --max: 720px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", Georgia, sans-serif;
+      line-height: 1.55;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #f0e0d2 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #e7efe6 0%, transparent 50%),
+        linear-gradient(180deg, #fbf6ef 0%, var(--paper) 40%, #f3ebe1 100%);
+      min-height: 100vh;
+    }
+
+    main {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+      padding: 2.5rem 0 4rem;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      animation: rise 0.7s ease both;
+    }
+
+    .eyebrow {
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+    }
+
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      line-height: 1.15;
+      margin: 0 0 0.75rem;
+      max-width: 14ch;
+    }
+
+    .lede {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 42ch;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.4rem 1.5rem;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+      animation: rise 0.7s ease both;
+    }
+
+    section:nth-of-type(1) { animation-delay: 0.05s; }
+    section:nth-of-type(2) { animation-delay: 0.1s; }
+    section:nth-of-type(3) { animation-delay: 0.15s; }
+    section:nth-of-type(4) { animation-delay: 0.2s; }
+    section:nth-of-type(5) { animation-delay: 0.25s; }
+    section:nth-of-type(6) { animation-delay: 0.3s; }
+    section:nth-of-type(7) { animation-delay: 0.35s; }
+
+    h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.35rem;
+      margin: 0 0 0.85rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 1.1rem 0 0.45rem;
+      color: var(--accent);
+    }
+
+    p, li { color: var(--ink); }
+    p { margin: 0 0 0.75rem; }
+    ul, ol { margin: 0 0 0.5rem; padding-left: 1.2rem; }
+    li { margin: 0.35rem 0; }
+    li strong { font-weight: 600; }
+
+    .note {
+      border-left: 3px solid var(--accent);
+      padding: 0.65rem 0.85rem;
+      background: var(--accent-soft);
+      border-radius: 0 12px 12px 0;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .disclaimer {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .product-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .product {
+      display: grid;
+      gap: 0.2rem;
+      padding: 0.85rem 0.95rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--line);
+    }
+
+    .product .role {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.65rem;
+      align-items: start;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .checklist li:last-child { border-bottom: 0; }
+
+    .check {
+      width: 1.15rem;
+      height: 1.15rem;
+      margin-top: 0.15rem;
+      border: 1.5px solid var(--accent);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .week-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .week-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .day {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      background: #fff;
+    }
+
+    .day .label {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag-tret { background: #f0ddd2; color: var(--accent); }
+    .tag-recover { background: #dde8df; color: var(--ok); }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+
+    .steps li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.7rem;
+      margin: 0.7rem 0;
+      align-items: start;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+      margin: 0.75rem 0 0;
+    }
+
+    .pill {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.88rem;
+    }
+
+    .arrow { color: var(--muted); }
+
+    .alert {
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      margin: 0.75rem 0;
+      border: 1px solid;
+    }
+
+    .alert-ok { background: #eef6f0; border-color: #b7d0be; color: var(--ok); }
+    .alert-warn { background: #fff6e8; border-color: #e4c48a; color: var(--warn); }
+    .alert-danger { background: #f8ecec; border-color: #d8b0b0; color: var(--danger); }
+
+    footer {
+      margin-top: 1.5rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      animation: rise 0.7s ease both;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media print {
+      body { background: #fff; }
+      section { box-shadow: none; break-inside: avoid; }
+      .check { print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Personal routine guide</p>
+      <h1>Live Tinted + Tretinoin + Ranavat</h1>
+      <p class="lede">Locked product map, AM/PM steps, 4-week schedule, and barrier sandwich protocol for texture, under-eye dullness, and even tone.</p>
+    </header>
+
+    <section aria-labelledby="disclaimer-title">
+      <h2 id="disclaimer-title">Before you start</h2>
+      <p class="disclaimer">General cosmetic guidance from a photo review — not a medical diagnosis. If mouth-area bumps worsen, or tretinoin irritation persists, see a dermatologist.</p>
+      <div class="note">
+        Photo priorities locked in: cheek texture/pores, small raised bumps near cheek and mouth, under-eye shadow/dullness, and even-tone maintenance with daily mineral SPF.
+      </div>
+    </section>
+
+    <section aria-labelledby="products-title" id="products">
+      <h2 id="products-title">1. Locked product map</h2>
+      <p>Exact brand SKUs were not listed, so this routine uses the plan’s assumed lineup. Treat these as your confirmed defaults unless you swap in an equivalent.</p>
+      <div class="product-grid">
+        <div class="product">
+          <span class="role">Cleanser</span>
+          <strong>Gentle cream cleanser</strong>
+          <span>Fragrance-free; PM makeup/SPF removal. Water rinse OK in the morning.</span>
+        </div>
+        <div class="product">
+          <span class="role">Brightening / hydrate</span>
+          <strong>Ranavat Radiant Rani Brightening Saffron Serum</strong>
+          <span>2–3 drops on damp skin, AM daily; PM before tret or on recovery nights.</span>
+        </div>
+        <div class="product">
+          <span class="role">Optional second serum</span>
+          <strong>Ranavat hydrating serum (if you already own one)</strong>
+          <span>Layer after saffron serum when skin feels tight.</span>
+        </div>
+        <div class="product">
+          <span class="role">Eye</span>
+          <strong>Live Tinted Superhue Brightening Eye Cream</strong>
+          <span>AM focus for under-eye dullness. Huestick is makeup corrector only, not treatment.</span>
+        </div>
+        <div class="product">
+          <span class="role">SPF (mandatory with tret)</span>
+          <strong>Live Tinted Hueguard 3-in-1 SPF 30</strong>
+          <span>Daily moisturizer + sunscreen. Outdoor days: Hueguard Skin Tint SPF 50.</span>
+        </div>
+        <div class="product">
+          <span class="role">Night hero</span>
+          <strong>Tretinoin — pea-size for full face</strong>
+          <span>Default frequency: 3–4 nights/week until calm, then increase slowly. Strength: use your prescribed %.</span>
+        </div>
+        <div class="product">
+          <span class="role">Barrier buffer</span>
+          <strong>Plain ceramide moisturizer</strong>
+          <span>Drugstore is fine. Used for sandwich method and recovery nights.</span>
+        </div>
+        <div class="product">
+          <span class="role">Optional AM brighteners</span>
+          <strong>Live Tinted Superbright 15% Vitamin C stick / Superhue Hyperpigmentation stick</strong>
+          <span>AM only or non-tret nights — never stacked with tret the same night.</span>
+        </div>
+      </div>
+
+      <h3>Confirmation checklist</h3>
+      <ul class="checklist">
+        <li><span class="check" aria-hidden="true"></span><span>I own Hueguard 3-in-1 (or will use an equivalent mineral SPF 30+ daily).</span></li>
+        <li><span class="check" aria-hidden="true"></span><span>I own Ranavat Brightening Saffron Serum (or equivalent hydrating brightening serum).</span></li>
+        <li><span class="check" aria-hidden="true"></span><span>I know my tretinoin strength and will start at 3–4 nights/week if not already tolerant.</span></li>
+        <li><span class="check" aria-hidden="true"></span><span>I have a plain moisturizer for buffering (ceramides / fatty alcohols).</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="am-title" id="morning">
+      <h2 id="am-title">2. Morning routine</h2>
+      <ol class="steps">
+        <li><div><strong>Cleanse lightly</strong><br />Lukewarm water rinse, or gentle non-foaming cleanser if oily. No hot water; no AM double cleanse unless very oily.</div></li>
+        <li><div><strong>Ranavat Brightening Saffron Serum</strong><br />2–3 drops on damp face and neck.</div></li>
+        <li><div><strong>Optional hydrating serum</strong><br />Only if you already use a second Ranavat hydrator.</div></li>
+        <li><div><strong>Eye cream</strong><br />Live Tinted Superhue Brightening Eye Cream.</div></li>
+        <li><div><strong>SPF — do not skip</strong><br />Hueguard 3-in-1 SPF 30. Longer outdoor days: Skin Tint SPF 50. Reapply every 2 hours outdoors.</div></li>
+        <li><div><strong>Makeup (optional)</strong><br />Skin Tint / concealer after SPF settles. Keep mouth/cheek products non-comedogenic.</div></li>
+      </ol>
+      <div class="flow" aria-label="Morning flow">
+        <span class="pill">Cleanse</span><span class="arrow">→</span>
+        <span class="pill">Ranavat</span><span class="arrow">→</span>
+        <span class="pill">Eye</span><span class="arrow">→</span>
+        <span class="pill">Hueguard SPF</span><span class="arrow">→</span>
+        <span class="pill">Makeup</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="pm-title" id="night">
+      <h2 id="pm-title">3. Night routine</h2>
+
+      <h3>Tretinoin nights (3–4×/week to start)</h3>
+      <ol class="steps">
+        <li><div><strong>Gentle cleanse</strong><br />Fully remove SPF/makeup. No scrubs.</div></li>
+        <li><div><strong>Wait until skin is fully dry</strong><br />About 15–20 minutes — reduces sting.</div></li>
+        <li><div><strong>Apply tretinoin</strong><br />Pea-size for the full face. See barrier sandwich below if sensitive.</div></li>
+        <li><div><strong>Moisturizer</strong><br />Seal with plain ceramide moisturizer.</div></li>
+      </ol>
+      <div class="alert alert-warn">
+        On tret nights avoid: Superbright vitamin C stick, AHAs/BHAs, strong brightening sticks on raw skin, and retinoid eye cream near the eyes.
+      </div>
+
+      <h3>Calm-skin layering (optional)</h3>
+      <p>If skin is calm and not stinging: Ranavat saffron serum → wait → tretinoin → moisturizer.</p>
+
+      <h3>Recovery nights (1–3×/week, or whenever dry/flaky)</h3>
+      <ol class="steps">
+        <li><div><strong>Cleanse</strong></div></li>
+        <li><div><strong>Ranavat serum(s)</strong></div></li>
+        <li><div><strong>Richer moisturizer / barrier cream</strong></div></li>
+        <li><div><strong>No tret, no acids, no vitamin C stick</strong></div></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="barrier-title" id="barrier">
+      <h2 id="barrier-title">4. Barrier sandwich protocol</h2>
+      <p>Use this whenever you notice dryness, flaking, stinging, or mouth-area irritation while on tretinoin.</p>
+      <ol class="steps">
+        <li><div><strong>Cleanse and dry fully</strong><br />Same 15–20 minute wait.</div></li>
+        <li><div><strong>Thin moisturizer first</strong><br />Plain ceramide cream as a buffer layer.</div></li>
+        <li><div><strong>Pea-size tretinoin</strong><br />Apply over the buffer; keep away from lips, nostrils, and immediate eye area.</div></li>
+        <li><div><strong>Moisturizer again</strong><br />Seal. Optional plain petrolatum only on dry patches — not on active bumps.</div></li>
+      </ol>
+      <div class="flow" aria-label="Sandwich flow">
+        <span class="pill">Moisturizer</span><span class="arrow">→</span>
+        <span class="pill">Tretinoin</span><span class="arrow">→</span>
+        <span class="pill">Moisturizer</span>
+      </div>
+      <div class="alert alert-ok">
+        If irritation continues after sandwiching: drop to every-other-night or 2–3×/week until calm, then rebuild.
+      </div>
+      <div class="alert alert-danger">
+        Stop and see a dermatologist for burning, widespread rash, or worsening perioral bumps.
+      </div>
+    </section>
+
+    <section aria-labelledby="schedule-title" id="schedule">
+      <h2 id="schedule-title">5. Four-week schedule</h2>
+      <p>Default calendar assumes tret on Mon / Wed / Fri / Sun in weeks 1–2, then add nights only if skin stays calm.</p>
+
+      <h3>Weeks 1–2 — barrier first</h3>
+      <div class="week-grid">
+        <div class="day">
+          <span class="tag tag-tret">Tret night</span>
+          <div class="label">Mon · Wed · Fri · Sun</div>
+          <p>AM: Ranavat → Hueguard<br />PM: cleanse → dry → sandwich tret → moisturizer</p>
+        </div>
+        <div class="day">
+          <span class="tag tag-recover">Recovery</span>
+          <div class="label">Tue · Thu · Sat</div>
+          <p>AM: Ranavat → Hueguard<br />PM: cleanse → Ranavat → richer moisturizer · no tret</p>
+        </div>
+      </div>
+
+      <h3>Weeks 3–4 — increase only if calm</h3>
+      <ul>
+        <li>No stinging or peeling for 5+ days? Add one extra tret night (e.g. Mon–Fri + Sun).</li>
+        <li>Still dry or bumpy near the mouth? Stay at 3–4×/week and keep sandwiching.</li>
+        <li>Take same-lighting progress photos at day 1 and day 28.</li>
+      </ul>
+
+      <h3>Weekly rules</h3>
+      <ul>
+        <li><strong>No physical exfoliation</strong> while on tret.</li>
+        <li><strong>No new actives</strong> for these 4 weeks — let tret handle texture.</li>
+        <li><strong>Do not pick</strong> mouth-area bumps; use barrier care instead of extra acids.</li>
+        <li><strong>Vitamin C / hyperpigmentation sticks:</strong> AM only, or non-tret nights.</li>
+        <li><strong>Hueguard every morning</strong> — highest-ROI Live Tinted step with tret.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="keep-title">
+      <h2 id="keep-title">6. What not to change</h2>
+      <ul>
+        <li>Keep <strong>Hueguard daily</strong>.</li>
+        <li>Keep <strong>Ranavat serum</strong> as the glow/hydrate layer and tret buffer.</li>
+        <li>Keep <strong>tretinoin</strong> as the only strong cell-turnover active.</li>
+      </ul>
+    </section>
+
+    <footer>
+      Routine generated from your photo review and current Live Tinted + tretinoin + Ranavat lineup. Print this page or reopen <code>skincare-routine/index.html</code> anytime.
+    </footer>
+  </main>
+</body>
+</html>
